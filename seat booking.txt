@@ -1,0 +1,69 @@
+using System;
+
+class seat{
+    public int[] a = new int[11];
+    int n;
+
+    public seat()
+    {
+        // Loop through the array and set each element to 1
+        for (int i = 1; i < 11; i++)
+        {
+            a[i] = 1;
+        }
+    }
+    public int avail()
+    {
+        System.Console.WriteLine("available seats are =");
+        for (int i = 1; i < 11; i++)
+        {   if(a[i]==1)
+            System.Console.Write(i+",");
+        }
+        System.Console.WriteLine();
+        return 0;
+    }
+    public int book()
+    {
+        System.Console.WriteLine("which seat do you want to book = ");
+        n = int.Parse(Console.ReadLine());
+        a[n]=0;
+        return 0;
+    }
+    public int view_booked()
+    {
+        System.Console.WriteLine("booked seat is = "+ n);
+        return 0;
+    }
+}
+class Prog{
+public static void Main(string[] args)
+{
+    
+ seat obj = new seat();
+    int ch =0;
+    do{
+    System.Console.WriteLine("1. Show available seats");
+    System.Console.WriteLine("2. Book a seat");
+    System.Console.WriteLine("3. View booked seats");
+    System.Console.WriteLine("4. Exit");
+    System.Console.WriteLine("Enter your choice");
+        ch = int.Parse(Console.ReadLine());
+      
+        switch(ch)
+        {
+            case 1: obj.avail();
+            break;
+            case 2: obj.book();
+            break;
+            case 3: obj.view_booked();
+            break;
+            
+            default: if(ch!=4)System.Console.WriteLine("Invalid Input!");
+            break;
+        }
+    }
+    while(ch!=4);
+    System.Console.WriteLine("Exit taken");
+    
+}
+}
